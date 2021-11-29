@@ -1,0 +1,20 @@
+
+	create or replace function mostrar_guardia(varchar, integer)
+	returns  text
+	as $mostrar_guardia$
+		declare 
+		 empresa alias for $1;
+		 año alias for $2;
+		 ruc_empresa varchar;
+		 total_guardia int;
+	begin
+		select empre_ruc into ruc_empresa from empresa where empre_nombre=$1;
+		select count(guar_cedula_guardia) as total into  total_guardia from convenio 
+		WHERE extract (year from convenio.conve_fecha)=año and empre_ruc_empresa = ruc_empresa;
+				return total_guardia;
+	end;
+	$mostrar_guardia$
+	Language plpgsql;
+
+
+	SELECT mostrar_guardia('EMPRESA SEGURITY', 2021 )

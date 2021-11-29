@@ -1,0 +1,92 @@
+
+	INSERT INTO GUARDIA VALUES('1315698526', 'Carolina', 'Mantuano', '20/08/2020', 'O+', '0991843520', 'carolina@gmail.com');
+	INSERT INTO GUARDIA VALUES('1389743500', 'Gerardo', 'Cedeño', '13/06/2021', 'O-', '0986432258', 'gerardo@gmail.com');
+	INSERT INTO GUARDIA VALUES('1388575758', 'Santiago', 'Mendoza', '25/11/2019', 'A+', '0973664638', 'santimen@gmail.com');
+	INSERT INTO GUARDIA VALUES('1385963528', 'Juan', 'Garcia', '26/04/2020', 'A-', '0997765790', 'juangar@gmail.com');
+	INSERT INTO GUARDIA VALUES('1365433677', 'Sergio', 'Velez', '05/04/2021', 'O+', '0963578595', 'sergiove@gmail.com');
+	INSERT INTO GUARDIA VALUES('1384757492', 'Charly', 'Calle', '16/09/2021', 'O-', '0987524153', 'charlyc@gmail.com');
+	INSERT INTO GUARDIA VALUES('1355678280', 'Carlos', 'Delgado', '12/12/2019', 'A+', '0973664638', 'carlosde@gmail.com');
+	INSERT INTO GUARDIA VALUES('1375646489', 'Vanesa', 'Dueñas', '15/10/2020', 'A-', '0983746526', 'vanedue@gmail.com');
+
+	INSERT INTO EQUIPO VALUES(1, '153 cm', '50Kg', '12/07/2019',  'Este guardia subio 1 kg desde hace un año', '1389743500');
+	INSERT INTO EQUIPO VALUES(2, '165 cm', '45Kg', '25/06/2020',  'Este guardia se encuentra bajo cuidado en enfermedad', '1365433677');
+	INSERT INTO EQUIPO VALUES(3, '160 cm', '65Kg', '16/07/2019',  'Este guardia subio 1 kg desde hace un año', '1375646489');
+	INSERT INTO EQUIPO VALUES(4, '168 cm', '50Kg', '12/07/2019',  'Este guardia subio 2kg desde hace un año', '1388575758');
+	INSERT INTO EQUIPO VALUES(5, '165 cm', '55Kg', '25/06/2021',  'Este guardia subio de peso debido a una enfermedad', '1365433677');
+	INSERT INTO EQUIPO VALUES(6, '160 cm', '71Kg', '16/07/2020',  'Este guardia subio 1 kg desde hace un año', '1388575758');
+
+
+	INSERT INTO ENTRENAMIENTO VALUES(1, 'Curso de seguridad privada', '20/08/2020', '20/12/2020', '4 meses', 'Finalizado', 150.50);
+	INSERT INTO ENTRENAMIENTO VALUES(2, 'Curso de vigilancia con rayos x', '13/07/2020', '13/08/2021', '13 meses', 'Por completar', 300.00);
+	INSERT INTO ENTRENAMIENTO VALUES(3, 'Curso de guia de perros de seguridad', '15/5/201', '25/11/2019', '6 meses', 'Por completar', 100.75);
+	INSERT INTO ENTRENAMIENTO VALUES(4, 'Cursos de capacitaciones de seguridad', '26/07/2019', '26/07/2020', '1 año', 'Por completar', 200.80);
+	INSERT INTO ENTRENAMIENTO VALUES(5, 'Curso de guardaespaldas', '15/01/2021', '15/04/2021', '3 meses', 'Finalizado', 350.00);
+	INSERT INTO ENTRENAMIENTO VALUES(6, 'Entrenamiento de armas', '15/06/2021', '15/09/2021', '3 meses', 'Por finalizar', 175.00);
+	
+	INSERT INTO ASCENSO VALUES( 1, '25/08/2021 12:30:05', 'Coronel', 'Garantizar el cumplimiento de las políticas', '1365433677');
+	INSERT INTO ASCENSO VALUES( 2, '26/12/2021 17:25:15', 'Cabo Segundo', 'Utiliza sistemas de información geográfica', '1384757492');
+	INSERT INTO ASCENSO VALUES( 3, '02/05/2020 18:35:55', 'Teniente', 'Mantener las comunicaciones operativas', '1355678280');
+	INSERT INTO ASCENSO VALUES( 4, '05/01/2021 14:10:45', 'Suboficial Mayor', 'Proteger los derechos humanos', '1375646489');
+
+	INSERT INTO EMPRESA VALUES('0192837489','EMPRESA GOLZIS','BARRIO SAN MATEO', '0936747821','golzis@gmail.com.ec', 'www.golzisempresa.com');
+	INSERT INTO EMPRESA VALUES('0164748467','EMPRESA ARTEAGA','BARRIO SANTIAGO', '0937447828','arteaga@hotmail.com', 'www.aretagaempresa.com');
+	INSERT INTO EMPRESA VALUES('1273789082','EMPRESA SANJUAN','BARRIO SEGUCAR', '0963564648','sanjuan@gmail.com', 'www.sanjuanempresa.com');
+	INSERT INTO EMPRESA VALUES('1635379939','EMPRESA SEGURITY','BARRIO DIVINO NIÑO','0986462251','security@live.hsc.com.ec','www.security.com');
+	
+
+	INSERT INTO CONVENIO VALUES(1, 'seguridad y vigilancia','Contrato area nocturna','1 año','10/08/2021 12:53:34',510.20,'0192837489','1315698526');
+	INSERT INTO CONVENIO VALUES(2, 'Vigilancia', 'Contrato para edificio principal','2 año','12/04/2020 08:30:34',310.20,'0164748467','1389743500');
+	INSERT INTO CONVENIO VALUES(3, 'seguridad', 'Contrato como guardia de seguridad','6 meses','15/12/2020 09:45:23',410.20,'1273789082','1365433677');
+	INSERT INTO CONVENIO VALUES(4, 'Detective', 'Contrato privado','1 año','24/05/2021 11:45:13',710.20,'1635379939','1355678280');
+	INSERT INTO CONVENIO VALUES(5, 'Seguridad electronica','Contrato para area local','3 meses','14/10/2021 14:36:48',510.20,'1273789082','1389743500');
+	INSERT INTO CONVENIO VALUES(6, 'seguridad tecnologica', 'Contrato para area local','6 meses','28/02/2021 15:34:52',610.20,'1635379939','1315698526');
+
+	INSERT INTO HORARIO VALUES( 1, '26/08/2021', '26/08/2022', '5 dias laborales', 1);
+	INSERT INTO HORARIO VALUES( 2, '27/12/2021', '27/12/2024', '2 dias sabados y domingos', 2);
+	INSERT INTO HORARIO VALUES( 3, '03/05/2020', '03/11/2020', '6 dias lunes a sabado', 3);
+	INSERT INTO HORARIO VALUES( 4, '06/01/2021', '06/01/2022', '3 dias: Martes, jueves, sabado', 4);
+	INSERT INTO HORARIO VALUES( 5, '03/05/2020', '03/08/2020', '5 dias laborales', 5);
+	INSERT INTO HORARIO VALUES( 6, '06/01/2021', '06/07/2021', '4 dias lunes a jueves', 6);
+
+	INSERT INTO INCONVENENTE VALUES( 1, '26/08/2021', 'Asalto en la empresa', '1315698526', '0192837489');
+	INSERT INTO INCONVENENTE VALUES( 2, '27/12/2021', 'Reclamacion con cliente ', '1389743500', '0164748467');
+	INSERT INTO INCONVENENTE VALUES( 3, '03/05/2020', 'Falta de respeto del cliente', '1365433677', '1273789082');
+	INSERT INTO INCONVENENTE VALUES( 4, '06/01/2021', 'Falta de balas en las armas', '1355678280', '1635379939');
+	INSERT INTO INCONVENENTE VALUES( 5, '03/05/2020', 'Reclamacion con cliente', '1389743500', '0164748467');
+	INSERT INTO INCONVENENTE VALUES( 6, '06/01/2021', 'Asalto en la empresa', '1315698526', '0192837489');
+
+	INSERT INTO SERVICIO VALUES( 1, 'Servicio de vacaciones');
+	INSERT INTO SERVICIO VALUES( 2, 'Servicio de adquisicion de balas');
+	INSERT INTO SERVICIO VALUES( 3, 'Servicio de Mantenimiento de armas');
+	INSERT INTO SERVICIO VALUES( 4, 'Servicio de cambio de empresa');
+	
+	INSERT INTO FACTURACION VALUES('001-001', '17/08/2021', 0.00, 0.00,'1315698526', '0192837489' );
+	INSERT INTO FACTURACION VALUES('002-002', '24/05/2020', 0.00, 0.00,'1389743500', '0164748467' );
+	INSERT INTO FACTURACION VALUES('003-003', '07/09/2020', 0.00, 0.00,'1365433677', '1273789082' );
+	INSERT INTO FACTURACION VALUES('004-004', '25/10/2021', 0.00, 0.00,'1355678280', '1635379939' );
+	INSERT INTO FACTURACION VALUES('005-005', '27/11/2021', 0.00, 0.00,'1389743500', '1273789082' );
+	INSERT INTO FACTURACION VALUES('006-006', '18/08/2020', 0.00, 0.00,'1315698526', '1635379939' );	
+
+	INSERT INTO DETALLE_FACTURA VALUES(1, 2, 373.00, 746.00,'005-005', 1 );	
+	INSERT INTO DETALLE_FACTURA VALUES(2, 1, 233.00, 466.00,'005-005', 1 );	
+	INSERT INTO DETALLE_FACTURA VALUES(3, 3, 425.00, 1275.00,'002-002', 4 );	
+	INSERT INTO DETALLE_FACTURA VALUES(4, 2, 557.00, 1114.00,'004-004', 2 );	
+	INSERT INTO DETALLE_FACTURA VALUES(5, 1, 648.00, 648.00,'001-001', 3 );	
+	INSERT INTO DETALLE_FACTURA VALUES(6, 1, 810.00, 810.00,'005-005', 1 );	
+
+	INSERT INTO GUARDIA_ENTRENAMIENTO VALUES('AB123', '1315698526', 1 );	
+	INSERT INTO GUARDIA_ENTRENAMIENTO VALUES('AB234', '1389743500', 2 );	
+	INSERT INTO GUARDIA_ENTRENAMIENTO VALUES('AB645', '1365433677', 2 );	
+	INSERT INTO GUARDIA_ENTRENAMIENTO VALUES('AB873', '1355678280', 4 );	
+	INSERT INTO GUARDIA_ENTRENAMIENTO VALUES('AB762', '1389743500', 3 );	
+	INSERT INTO GUARDIA_ENTRENAMIENTO VALUES('AB653', '1315698526', 3 );	
+
+	INSERT INTO GUARDIA_SERVICIO VALUES('0123','24/02/2019','Por viaje de familia',1,'1389743500');
+	INSERT INTO GUARDIA_SERVICIO VALUES('0243','14/05/2020','Se quedo sin valas despues de un ataque',2,'1365433677');
+	INSERT INTO GUARDIA_SERVICIO VALUES('0323','22/07/2019','Por viaje con la familia',1,'1389743500');
+	INSERT INTO GUARDIA_SERVICIO VALUES('0443','26/02/2020','Se quedo sin balas al perder el arma',2,'1365433677');
+	INSERT INTO GUARDIA_SERVICIO VALUES('0523','24/06/2019','Por necesidad de viajar al extranjero',1,'1389743500');
+	INSERT INTO GUARDIA_SERVICIO VALUES('0643','14/02/2020','NNecesita balas en una de las armas',2,'1365433677');
+	INSERT INTO GUARDIA_SERVICIO VALUES('0723','16/02/2020','Mucho tiempo sin hacerle mantenimiento al arma',3,'1375646489');
+	INSERT INTO GUARDIA_SERVICIO VALUES('0843','15/04/2021','Problema empresarial',4,'1355678280');
+

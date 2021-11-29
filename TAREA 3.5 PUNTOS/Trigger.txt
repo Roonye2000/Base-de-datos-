@@ -1,0 +1,28 @@
+create or replace function adquirir_bala()
+	returns trigger as $$
+		declare 
+		servicio_balas varchar;
+		cedula varchar;
+		total int;
+	begin
+	  SELECT serv_id  into servicio_balas from servicio where serv_detalle = 'Servicio de adquisicion de balas';
+	  SELECT guar_cedula_guardia INTO cedula from guardia_servicio where guar_cedula_guardia = new.guar_cedula_guardia;
+	  SELECT count (serv_id_servicio) into total from guardia_servicio where 
+	  	new.serv_id_servicio=servicio_balas and 
+		new.guar_cedula_guardia=cedula and
+		extract (year from serv_guar_fecha) = extract (year from new.serv_guar_fecha) AND 
+		extract (month from serv_guar_fecha) = extract (month from new.serv_guar_fecha);
+		if (total > 2) then /**/
+		  raise exception 'Este guardia ha solicitado balas tres veces en este mes por lo tanto no se le puede facilitar mas ';
+		end if;
+		return new;
+	end;$$
+	Language plpgsql;	
+
+
+	CREATE trigger control_de_balas before insert
+		on guardia_servicio  for each row
+		execute procedure adquirir_bala();
+
+
+	INSERT INTO GUARDIA_SERVICIO VALUES('0876','29/05/2020','Se quedo sin valas despues de un ataque',2,'1365433677');

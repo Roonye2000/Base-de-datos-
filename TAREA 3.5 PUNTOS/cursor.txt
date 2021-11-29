@@ -1,0 +1,38 @@
+  
+  do $$
+DECLARE 
+	datos_guardia RECORD;
+	cur_guardia cursor for SELECT 
+	  empresa.empre_nombre as nombre_empresa, convenio.conve_tipo as nombre_convenio,  convenio.conve_fecha as fecha, 
+	  sum(convenio.conve_pago_mensual)as total_pago,  guardia.guar_nombre as nombre_guardia, 
+	  count(servicio.serv_detalle) as servicios_pedidos
+	FROM convenio
+	  INNER JOIN empresa ON empresa.empre_ruc = convenio.empre_ruc_empresa
+	  INNER JOIN guardia ON guardia.guar_cedula = convenio.guar_cedula_guardia
+	  INNER JOIN guardia_servicio ON guardia_servicio.guar_cedula_guardia = guardia.guar_cedula
+	  INNER JOIN servicio ON guardia_servicio.serv_id_servicio = servicio.serv_id
+	GROUP BY
+	  empresa.empre_nombre, convenio.conve_tipo, convenio.conve_fecha, guardia.guar_nombre;
+BEGIN	
+	OPEN cur_guardia;
+	FETCh cur_guardia INTO datos_guardia;
+	while (found) loop 
+	RAISE NOTICE 
+	'Empresa: %
+	 Convenio: %
+	 Fecha: % 
+	 Pago total: % 
+	 Guardia: % 
+	 Total de servicios solicitados: % 
+	',
+	datos_guardia.nombre_empresa, datos_guardia.nombre_convenio, datos_guardia.fecha,
+	datos_guardia.total_pago, datos_guardia.nombre_guardia, datos_guardia.servicios_pedidos;
+	FETCh cur_guardia INTO datos_guardia;
+end loop;	
+end $$
+Language 'plpgsql';
+
+
+
+
+

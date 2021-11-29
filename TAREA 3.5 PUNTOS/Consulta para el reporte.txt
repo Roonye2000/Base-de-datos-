@@ -1,0 +1,27 @@
+
+  SELECT 
+  empresa.empre_nombre, 
+  empresa.empre_direccion, 
+  empresa.empre_ruc, 
+  empresa.empre_telefono, 
+  empresa.empre_correo, 
+  empresa.empre_pagina_web, 
+  extract (year from convenio.conve_fecha) as fecha,
+  sum(convenio.conve_pago_mensual) as pagos,
+  concat(guardia.guar_nombre ||'  '|| guardia.guar_apellido) as guardia
+FROM 
+  convenio
+  INNER JOIN empresa ON empresa.empre_ruc = convenio.empre_ruc_empresa
+  INNER JOIN guardia ON guardia.guar_cedula = convenio.guar_cedula_guardia
+WHERE 
+  empresa.empre_nombre = 'EMPRESA SANJUAN'
+GROUP BY
+  empresa.empre_nombre, 
+  empresa.empre_direccion, 
+  empresa.empre_ruc, 
+  empresa.empre_telefono, 
+  empresa.empre_correo, 
+  empresa.empre_pagina_web,
+  guardia.guar_nombre,
+  guardia.guar_apellido,
+  extract (year from convenio.conve_fecha) ;

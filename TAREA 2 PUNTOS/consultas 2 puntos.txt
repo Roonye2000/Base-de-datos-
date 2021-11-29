@@ -1,0 +1,85 @@
+	
+	--Mostrar el histórico de ingreso total por la empresa ‘SAN JUAN’ En el mes de noviembre del 2021
+
+
+	SELECT 
+	  empresa.empre_nombre, 
+	  facturacion.fact_fecha, 
+	  SUM(detalle_factura.deta_total) AS fact_total
+	FROM facturacion
+	  INNER JOIN detalle_factura ON detalle_factura.fact_num_facturacion = facturacion.fact_num 
+	  INNER JOIN empresa ON facturacion.empre_ruc_empresa = empresa.empre_ruc
+	WHERE 
+	  empresa.empre_nombre = 'EMPRESA SANJUAN' AND 
+	  facturacion.fact_fecha >='01/11/2021' AND 
+	  facturacion.fact_fecha <='30/11/2021'
+	 GROUP BY 
+	  empresa.empre_nombre, 
+	  facturacion.fact_fecha
+
+	
+	--Mostrar el total de los incidentes ocurridos en cada una de las empresas en el año 2021
+
+
+	SELECT 
+	 	empresa.empre_nombre, 
+	  	extract (year from inconvenente.incon_fecha), 
+	  	count(inconvenente.incon_detalle) as total_inconveniente, 
+	  	concat(guardia.guar_nombre ||'  '|| guardia.guar_apellido) as nombre_guardia
+	FROM inconvenente
+		INNER JOIN empresa ON inconvenente.empre_ruc_empresa = empresa.empre_ruc 
+		INNER JOIN guardia ON guardia.guar_cedula = inconvenente.guar_cedula_guardia
+	WHERE 
+		extract (year from inconvenente.incon_fecha)=2021
+	GROUP BY 
+	 	empresa.empre_nombre, 
+	 	extract (year from inconvenente.incon_fecha), 
+	 	concat(guardia.guar_nombre ||'  '|| guardia.guar_apellido);
+
+
+
+	-- Mostrar histórico del servicio que  cada guardia ah solicitado en cada año
+
+	
+	SELECT 
+	  	concat(guardia.guar_nombre ||'  '|| guardia.guar_apellido) as nombre_guardia,
+	  	servicio.serv_detalle, 
+	  	count(servicio.serv_detalle ) as cantidad,
+	  	extract (year from guardia_servicio.serv_guar_fecha)
+	FROM 
+		guardia_servicio
+		INNER JOIN guardia ON guardia_servicio.guar_cedula_guardia = guardia.guar_cedula
+		INNER JOIN servicio ON guardia_servicio.serv_id_servicio = servicio.serv_id 
+	GROUP BY
+		concat(guardia.guar_nombre ||'  '|| guardia.guar_apellido),
+		servicio.serv_detalle,
+		extract (year from guardia_servicio.serv_guar_fecha);
+
+
+
+
+	-- Mostrar el histórico de entrenamientos que fueron hechos por una cantidad de guardias el 
+	-- mes de julio o mes numero 7
+
+
+
+	
+	SELECT 
+	  	count(guardia.guar_nombre) as cantidad_guardia,
+	  	extract (month from entrenamiento.entre_fecha_inicio) as mes,
+	  	entrenamiento.entre_tipo
+	FROM guardia_entrenamiento
+	  	inner join guardia on  guardia.guar_cedula = guardia_entrenamiento.guar_cedula_guardia
+	  	inner join entrenamiento on guardia_entrenamiento.entre_id_entrenamiento = entrenamiento.entre_id
+	WHERE
+	 -- En esta parte hacemos la pregunta para que solo muestre los entrenaientos que fueron dads en julio o el mes 7
+	  	extract (month from entrenamiento.entre_fecha_inicio)=7
+	group by 
+	  	entrenamiento.entre_fecha_inicio, 
+	  	entrenamiento.entre_tipo;
+
+
+
+
+
+
